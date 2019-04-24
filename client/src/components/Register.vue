@@ -8,23 +8,23 @@
           </v-toolbar>
 
           <div class="pl-4 pr-4 pt-2 pb-2">
-            <input
-              type="email"
-              name="email"
+            <v-text-field
               v-model="email"
-              placeholder="email" />
+              placeholder="Email"
+            ></v-text-field>
             <br>
-            <input
-              type="password"
+            <v-text-field
               name="password"
               v-model="password"
-              placeholder="password" />
+              type="password"
+              placeholder="Password"
+              ></v-text-field>
             <br>
             <div class="error" v-html="error" />
             <br>
             <div class="success" v-html="success" />
             <br>
-            <v-btn class="cyan" @click="register">Register</v-btn>
+            <v-btn dark class="cyan" @click="register">Register</v-btn>
           </div>
         </div>
       </v-flex>
@@ -62,10 +62,15 @@ export default {
 </script>
 
 <style scoped>
+/* .cyan {
+  color: white
+} */
 .error {
-  color: red
+  background-color:#ffffff !important;
+  color: red;
 }
 .success {
-  color: green
+  color: green;
+  background-color:#ffffff !important;
 }
 </style>

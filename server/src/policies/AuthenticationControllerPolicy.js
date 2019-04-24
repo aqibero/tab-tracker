@@ -20,7 +20,7 @@ if (error) {
       break
     case 'password':
       res.status(400).send({
-        error: `The password provided failed to match te following rules:
+        error: `The password provided failed to match the following rules:
           <br>
           1. It must contain ONLY the following characters: lower case, UPPER CASE, and numerics.
           <br>
