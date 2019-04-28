@@ -10,7 +10,7 @@ async function hashPassword (user, options) {
   return await bcrypt
     .hash(user.password, null, null, function(error, hash){ 
       // console.log(hash)
-      //  Store hash in password DB.
+      // Store hash in password DB.
       user.setDataValue('password', hash)
     })
 }
@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     hooks: {
       beforeCreate: hashPassword
-      // beforeUpdate: hashPassword,
+      // beforeUpdate: hashPassword
       // beforeSave: hashPassword
     }
   })

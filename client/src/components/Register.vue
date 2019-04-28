@@ -8,17 +8,21 @@
           </v-toolbar>
 
           <div class="pl-4 pr-4 pt-2 pb-2">
-            <v-text-field
-              v-model="email"
-              placeholder="Email"
-            ></v-text-field>
-            <br>
-            <v-text-field
-              name="password"
-              v-model="password"
-              type="password"
-              placeholder="Password"
+            <form
+              name="tab-tracker-form" autocomplete="off">
+              <v-text-field
+                v-model="email"
+                placeholder="Email"
               ></v-text-field>
+              <br>
+              <v-text-field
+                name="password"
+                v-model="password"
+                type="password"
+                placeholder="Password"
+                autocomplete="new-password"
+                ></v-text-field>
+            </form>
             <br>
             <div class="error" v-html="error" />
             <br>
@@ -48,10 +52,12 @@ export default {
       this.error = ''
       this.success = ''
       try {
-        await AuthenticationService.register({
+        const response = await AuthenticationService.register({
           email: this.email,
           password: this.password
         })
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setuser', response.data.user)
         this.success = 'Sucess'
       } catch (error) {
         this.error = error.response.data.error
