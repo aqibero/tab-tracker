@@ -1,0 +1,38 @@
+<template>
+  <v-container grid-list-md text-md-center fluid fill-height>
+    <v-layout row wrap justify-center>
+      <v-flex md6>
+        <panel title="Songs">
+          <div v-for="song in songs" :key="song.id">
+            {{song.title}} -
+            {{song.artist}} -
+            {{song.album}}
+          </div>
+        </panel>
+      </v-flex>
+    </v-layout>
+  </v-container>
+</template>
+<script>
+import SongsService from '@/services/SongsService'
+import Panel from '@/components/Panel'
+export default {
+  components: {
+    Panel
+  },
+  data () {
+    return {
+      songs: ''
+    }
+  },
+  async mounted () {
+    // Do a request to the backend for all the songs
+    this.songs = (await SongsService.index()).data
+    console.log('songs', this.songs)
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
