@@ -1,0 +1,72 @@
+<template>
+  <div>
+    <v-layout>
+      <v-flex xs6>
+        <song-metadata :song="song" />
+      </v-flex>
+
+      <v-flex xs6 class="ml-2">
+        <you-tube :youtubeId="song.youtubeId" />
+      </v-flex>
+    </v-layout>
+
+    <!-- <v-layout>
+      <v-flex xs6>
+        <panel title="YouTube Video">
+        </panel>
+      </v-flex>
+      <v-flex xs6 class="ml-2">
+        <panel title="Lyrics">
+          <v-container fluid grid-list-md>
+            <v-textarea
+            auto-grow
+            aria-readonly
+            v-model="song.lyrics"
+            ></v-textarea>
+          </v-container>
+        </panel>
+      </v-flex>
+      <v-flex xs6>
+        <panel title="Tabs" class="ml-2">
+          <v-container fluid grid-list-md>
+            <v-textarea auto-grow readonly label="Tabs" v-model="song.tab">
+            </v-textarea>
+          </v-container>
+        </panel>
+      </v-flex>
+    </v-layout> -->
+  </div>
+</template>
+<script>
+import SongMetadata from './SongMetadata'
+import YouTube from './YouTube'
+import SongsService from '@/services/SongsService'
+import Panel from '@/components/Panel'
+export default {
+  data () {
+    return {
+      song: null
+    }
+  },
+  async mounted () {
+    const songId = this.$store.state.route.params.songId
+    this.song = (await SongsService.show(songId)).data
+  },
+  components: {
+    Panel,
+    SongMetadata,
+    YouTube
+  }
+}
+</script>
+<style scoped>
+.v-textarea {
+  width: 100%;
+  font-family: monospace;
+  border: none;
+  border-style: none;
+  border-color:transparent;
+  overflow: auto;
+  padding:40px;
+}
+</style>

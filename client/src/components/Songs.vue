@@ -10,8 +10,9 @@
             small
             absolute
             right
+            sticky
             fab>
-            <v-icon>add</v-icon>
+            <v-icon>add_circle</v-icon>
           </v-btn>
           <div class="song" v-for="song in songs" :key="song.id">
             <v-layout>
@@ -68,7 +69,7 @@ export default {
   async mounted () {
     // Do a request to the backend for all the songs
     this.songs = (await SongsService.index()).data
-    console.log('songs', this.songs)
+    // console.log('songs', this.songs)
   }
 }
 </script>
