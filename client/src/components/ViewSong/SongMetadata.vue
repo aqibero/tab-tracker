@@ -56,12 +56,4 @@ export default {
 width: 70%;
 margin: 0 auto;
 }
-
-/* .v-textarea {
-  width: 100%;
-  font-family: monospace;
-  border: none;
-  border-style: none;
-  border-color:transparent;
-} */
 </style>
