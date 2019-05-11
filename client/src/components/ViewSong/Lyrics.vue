@@ -24,6 +24,6 @@ export default {
   border-style: none;
   border-color: transparent;
   overflow: auto;
-  padding: 40px;
+  padding: 10px;
 }
 </style>

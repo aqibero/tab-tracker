@@ -1,10 +1,10 @@
 <template>
-    <panel title="Tab">
-      <v-textarea
-        readonly
-        v-model="song.tab"
-      ></v-textarea>
-    </panel>
+  <panel title="Tab">
+    <v-textarea
+      readonly
+      v-model="song.tab"
+    ></v-textarea>
+  </panel>
 </template>
 
 <script>
@@ -24,6 +24,6 @@ export default {
   border-style: none;
   border-color: transparent;
   overflow: auto;
-  padding: 40px;
+  padding: 10px;
 }
 </style>

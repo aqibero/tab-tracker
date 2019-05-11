@@ -1,13 +1,10 @@
 <template>
-  <div>
-    <panel title="YouTube Video">
-      <youtube
-        :video-id="youtubeId"
-        :player-width="800"
-        :player-height="330">
-      </youtube>
-    </panel>
-  </div>
+  <panel title="YouTube Video">
+    <youtube
+      :video-id="youtubeId"
+      :player-width="400"
+      :player-height="300" />
+  </panel>
 </template>
 
 <script>

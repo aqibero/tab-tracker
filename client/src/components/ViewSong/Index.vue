@@ -1,11 +1,11 @@
 <template>
   <div>
-    <v-layout>
+    <v-layout fluid md6>
       <v-flex xs6>
         <song-metadata :song="song" />
       </v-flex>
 
-      <v-flex xs6 class="ml-2">
+      <v-flex xs6 md6 class="ml-2">
         <you-tube :youtubeId="song.youtubeId" />
       </v-flex>
     </v-layout>
@@ -19,32 +19,6 @@
         <lyrics :song="song" />
       </v-flex>
     </v-layout>
-
-    <!-- <v-layout>
-      <v-flex xs6>
-        <panel title="YouTube Video">
-        </panel>
-      </v-flex>
-      <v-flex xs6 class="ml-2">
-        <panel title="Lyrics">
-          <v-container fluid grid-list-md>
-            <v-textarea
-            auto-grow
-            aria-readonly
-            v-model="song.lyrics"
-            ></v-textarea>
-          </v-container>
-        </panel>
-      </v-flex>
-      <v-flex xs6>
-        <panel title="Tabs" class="ml-2">
-          <v-container fluid grid-list-md>
-            <v-textarea auto-grow readonly label="Tabs" v-model="song.tab">
-            </v-textarea>
-          </v-container>
-        </panel>
-      </v-flex>
-    </v-layout> -->
   </div>
 </template>
 <script>
