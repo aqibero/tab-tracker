@@ -20,7 +20,15 @@
                 ></v-text-field>
             </form>
             <br>
-            <div class="error" v-html="error" />
+            <div v-html="error" v-if="error">
+              <v-alert
+              :value="true"
+              color="cyan"
+              icon="info"
+              outline>
+              {{ error }}
+              </v-alert>
+            </div>
             <br>
             <div class="success" v-html="success" />
             <br>
@@ -34,7 +42,6 @@
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
-import Panel from '@/components/Panel'
 export default {
   data () {
     return {
@@ -60,9 +67,6 @@ export default {
         this.error = error.response.data.error
       }
     }
-  },
-  components: {
-    Panel
   }
 }
 </script>
